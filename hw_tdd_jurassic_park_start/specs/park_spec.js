@@ -7,7 +7,11 @@ describe('Park', function() {
   let dinosaur;
   beforeEach(function () {
     park = new Park("Jurrasic World", 100);
-    dinosaur = new Dinosaur('t-rex', 'carnivore', 50);
+    trex = new Dinosaur('t-rex', 'carnivore', 50);
+    stegosaurus = new Dinosaur('stegosaurus', 'herbivorous', 20);
+    diplodocus = new Dinosaur('diplodocus', 'herbivorous', 30);
+    triceratops = new Dinosaur('triceratops', 'herbivorous', 40);
+    park.dinosaurCollection = [trex, stegosaurus, diplodocus];
   })
 
   it('should have a name', function() {
@@ -20,9 +24,17 @@ describe('Park', function() {
     assert.strictEqual(actual, 100);
   });
 
-  xit('should have a collection of dinosaurs');
+  it('should have a collection of dinosaurs', function() {
+    const actual =  park.dinosaurCollection.length > 0;
+    assert.strictEqual (actual, true);
+  });
 
-  xit('should be able to add a dinosaur to its collection');
+  it('should be able to add a dinosaur to its collection', function() {
+    const collectionBefore =  park.dinosaurCollection.length;
+    park.addDinosaur(triceratops);
+    const collectionAfter = park.dinosaurCollection.length;
+    assert.strictEqual (collectionBefore < collectionAfter, true);
+  });
 
   xit('should be able to remove a dinosaur from its collection');
 
