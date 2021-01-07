@@ -36,7 +36,12 @@ describe('Park', function() {
     assert.strictEqual (collectionBefore < collectionAfter, true);
   });
 
-  xit('should be able to remove a dinosaur from its collection');
+  it('should be able to remove a dinosaur from its collection', function() {
+    const collectionBefore =  park.dinosaurCollection.length;
+    park.removeDinosaur(diplodocus);
+    const collectionAfter = park.dinosaurCollection.length;
+    assert.strictEqual (collectionBefore > collectionAfter, true);
+  });
 
   xit('should be able to find the dinosaur that attracts the most visitors');
 
