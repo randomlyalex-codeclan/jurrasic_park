@@ -55,4 +55,9 @@ Park.prototype.totalVisitsPerDay = function () {
     return total;
 }
 
+Park.prototype.totalVisitsPerYear = function () {
+    let days_open = 365; //this can be used to call another function later to calculate days open to public
+    return totalVisitsPerDay * days_open;
+}
+
 module.exports = Park;
