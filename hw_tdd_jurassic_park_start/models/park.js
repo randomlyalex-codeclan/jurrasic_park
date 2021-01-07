@@ -1,5 +1,6 @@
-const Park = function (name) {
+const Park = function (name, entryPrice) {
     this.name = name;
+    this.entryPrice = entryPrice;
 
   }
   

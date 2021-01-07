@@ -6,7 +6,7 @@ describe('Park', function() {
   let park;
   let dinosaur;
   beforeEach(function () {
-    park = new Park("Jurrasic World");
+    park = new Park("Jurrasic World", 100);
     dinosaur = new Dinosaur('t-rex', 'carnivore', 50);
   })
 
@@ -15,7 +15,10 @@ describe('Park', function() {
     assert.strictEqual(actual, "Jurrasic World");
   });
 
-  xit('should have a ticket price');
+  it('should have a ticket price', function() {
+    const actual = park.entryPrice;
+    assert.strictEqual(actual, 100);
+  });
 
   xit('should have a collection of dinosaurs');
 
