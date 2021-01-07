@@ -17,5 +17,23 @@ Park.prototype.removeDinosaur = function (dinosaur) {
         }
     }
 }
+Park.prototype.mostPopularDinosaur = function () {
+    let mostPopularDinosaur = false;
+    if (this.dinosaurCollection.length === 1){
+        mostPopularDinosaur = this.dinosaurCollection[0];
+    } else if (this.dinosaurCollection.length > 1) {
+        mostPopularDinosaur = this.dinosaurCollection[0];
+        for( let i = 1; i < this.dinosaurCollection.length; i++){ 
+            if ( this.dinosaurCollection[i].guestsAttractedPerDay > mostPopularDinosaur.guestsAttractedPerDay) { 
+                mostPopularDinosaur = this.dinosaurCollection[i];
+            }
+        }
+    }
+    else {
+        return mostPopularDinosaur
+    }
+    return mostPopularDinosaur
+    
+}
 
 module.exports = Park;

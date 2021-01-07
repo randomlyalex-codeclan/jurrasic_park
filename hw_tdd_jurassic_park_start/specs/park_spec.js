@@ -43,9 +43,17 @@ describe('Park', function() {
     assert.strictEqual (collectionBefore > collectionAfter, true);
   });
 
-  xit('should be able to find the dinosaur that attracts the most visitors');
+  it('should be able to find the dinosaur that attracts the most visitors', function() {
+    const actual = park.mostPopularDinosaur();
+    assert.strictEqual (actual, trex);
+  });
 
-  xit('should be able to find all dinosaurs of a particular species');
+  xit('should be able to find all dinosaurs of a particular species', function() {
+    trex2 = new Dinosaur('t-rex', 'carnivore', 45);
+    park.addDinosaur(trex2);
+    const actual = park.findAllSpecies().length;
+    assert.strictEqual (actual, 2);
+  });
 
   xit('should be able to calculate the total number of visitors per day');
 
