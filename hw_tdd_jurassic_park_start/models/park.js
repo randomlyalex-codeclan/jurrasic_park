@@ -17,6 +17,7 @@ Park.prototype.removeDinosaur = function (dinosaur) {
         }
     }
 }
+
 Park.prototype.mostPopularDinosaur = function () {
     let mostPopularDinosaur = false;
     if (this.dinosaurCollection.length === 1){
@@ -34,6 +35,24 @@ Park.prototype.mostPopularDinosaur = function () {
     }
     return mostPopularDinosaur
     
+}
+
+Park.prototype.findAllSpecies = function (species) {
+    let matchingSpecies = [];
+        for( dinosaur of this.dinosaurCollection){ 
+            if ( dinosaur.species === species) { 
+                matchingSpecies.push(dinosaur);
+            }
+        }
+    return matchingSpecies;
+}
+
+Park.prototype.totalVisitsPerDay = function () {
+    let total = 0;
+        for( dinosaur of this.dinosaurCollection){ 
+            total += dinosaur.guestsAttractedPerDay
+        }
+    return total;
 }
 
 module.exports = Park;

@@ -48,14 +48,17 @@ describe('Park', function() {
     assert.strictEqual (actual, trex);
   });
 
-  xit('should be able to find all dinosaurs of a particular species', function() {
+  it('should be able to find all dinosaurs of a particular species', function() {
     trex2 = new Dinosaur('t-rex', 'carnivore', 45);
     park.addDinosaur(trex2);
-    const actual = park.findAllSpecies().length;
-    assert.strictEqual (actual, 2);
+    const actual = park.findAllSpecies("t-rex");
+    assert.strictEqual (actual.length, 2);
   });
 
-  xit('should be able to calculate the total number of visitors per day');
+  it('should be able to calculate the total number of visitors per day', function() {
+    const actual = park.totalVisitsPerDay();
+    assert.strictEqual (actual, 100);
+  });;
 
   xit('should be able to calculate the total number of visitors per year');
 
